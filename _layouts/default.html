@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+    {% if page.title  %}
+      {{ page.title }}
+    {% else %}
+      Fernanda Ramadhan Putra Hartono
+    {% endif %}
+    </title>
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <meta property="url"
+    {% if page.category %}
+      content="{{site.url}}/{{page.url}}"
+    {% else %}
+      content="{{site.url}}"
+    {% endif %}
+    />
+    <meta property="type"          content="website" />
+    <meta property="title"
+    {% if page.category %}
+      content="{{page.title}}"
+    {% else %}
+      content="{{site.title}}"
+    {% endif %}
+    />
+    <meta property="description"
+    {% if page.category %}
+      content="{{page.excerpt}}"
+    {% else %}
+      content="Halo, saya Ahnaf Hadi Fathulloh. Bukan seorang programmer, tapi suka belajar dan membuat sesuatu dengan pemrograman. Halaman ini adalah tempat coret - coretan random saya."
+    {% endif %}
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74386408-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-74386408-3');
+    </script>
+
+  </head>
+      <body>
+        <h1 class="title"><a href="{{ site.url }}">fernanda322</a></h1>
+        <h1>{{ page.title }}</h1>
+        {% if page.category == 'blog' or page.category == 'katamotivasi'  %}
+
+          Posted on <i>{{ page.date | date_to_long_string }}</i><br>
+        {% endif %}
+
+        {% if page.category  %}
+          <a href="{{site.url}}">Home</a> - <a href="{{site.url}}/{{page.category}}"><u>{{ page.category }}</u></a>
+        {% endif %}
+        <section>
+          {{ content }}
+        </section>
+
+    <footer>
+      <center><a href="https://ini.space/fernanda322" target="_blank">Contact Me</a> </center>
+      <center>&copy; 2020 - Made with <span class="love">&#10084;</span> by Fernanda Ramadhan</center>
+    </footer>
+    </body>
+</html>
